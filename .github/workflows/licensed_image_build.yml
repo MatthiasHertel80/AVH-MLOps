@@ -29,7 +29,7 @@ jobs:
           docker run -d --name build_container  -v ${{ github.workspace }}:/workspace  ghcr.io/${{ env.REPO_SLUG }}/arm-mlops-docker-base:latest /home/arm_mlops_docker/ArmCompilerforEmbedded6.20/bin/armlm  
           # cp ./arm_mlops_docker_license ./docker_licensed/arm_mlops_docker_license
           # cat ./docker_licensed/arm_mlops_docker_license
-          docker exec build_container /home/arm_mlops_docker/ArmCompilerforEmbedded6.20/bin/armlm deactivate --code ${{ secrets.ARM_UBL_LICENSE_IDENTIFIER }} --as-user arm_mlops_docker 
+          # docker exec build_container /home/arm_mlops_docker/ArmCompilerforEmbedded6.20/bin/armlm deactivate --code ${{ secrets.ARM_UBL_LICENSE_IDENTIFIER }} --as-user arm_mlops_docker 
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2

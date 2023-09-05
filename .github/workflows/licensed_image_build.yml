@@ -24,6 +24,9 @@ jobs:
       - name: Pull Base Docker image
         run: docker pull ghcr.io/${{ env.REPO_SLUG }}/arm-mlops-docker-base:latest
 
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        
       - name: Create license file (stub)
         run: |
           docker run -d --name build_container --mount type=bind,source=${{ github.workspace }},target=/workspace ghcr.io/${{ env.REPO_SLUG }}/arm-mlops-docker-base:latest sleep infinity

@@ -24,4 +24,4 @@ jobs:
         run: su -l arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cbuild --version"
 
       - name: Run test command in Docker container
-        run: /home/arm_mlops_docker/ArmCompilerforEmbedded6.20/bin/armclang --version
+        run: su -l arm_mlops_docker -c"/home/arm_mlops_docker/ArmCompilerforEmbedded6.20/bin/armclang --version"

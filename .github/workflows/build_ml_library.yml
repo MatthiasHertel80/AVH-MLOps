@@ -1,27 +1,23 @@
-name: Build ML Library project
+name: Build ML Library project and run in Arm Virtual Hardware FVP
 
 on:
   workflow_run:
-    workflows: ["Build and Push Docker Image"]
+    workflows: ["Run Test in Docker Container"]
     types:
       - completed
 
 jobs:
   run_test:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/matthiashertel80/avh-mlops/arm-mlops-docker-licensed:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      options: --user root
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Log in to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Pull Docker image
-        run: docker pull ghcr.io/${{ github.repository }}/arm-mlops-docker-licensed:latest
-
-      - name: Run test command in Docker container
-        run: docker run --rm ghcr.io/${{ github.repository }}/arm-mlops-docker-licensed:latest armclang --version
+      - name: Build Model for Cortex-M3 with AC6 (size)
+        run: su -l arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cbuild MLOps.csolution.yml --context ML_Model.size+CM3 --toolchain AC6"

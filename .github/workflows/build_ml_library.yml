@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: run ls
-        run:  su -l arm_mlops_docker -c "ls /__w/AVH-MLOps -la"
+        run:  su -l arm_mlops_docker -c "ls /__w/AVH-MLOps/AVH-MLOps -la"
 
       - name: Build Model for Cortex-M3 with AC6 (size)
-        run: su -l arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cbuild /__w/AVH-MLOps/MLOps.csolution.yml --context ML_Model.size+CM3 --toolchain AC6"
+        run: su -l arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cbuild /__w/AVH-MLOps/AVH-MLOps/MLOps.csolution.yml --context ML_Model.size+CM3 --toolchain AC6"

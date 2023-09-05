@@ -19,5 +19,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Try to execute cbuild
+        run: cbuild --version 
+
       - name: Run test command in Docker container
         run: /home/arm_mlops_docker/ArmCompilerforEmbedded6.20/bin/armclang --version

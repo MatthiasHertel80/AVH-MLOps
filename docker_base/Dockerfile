@@ -18,6 +18,5 @@ RUN chmod +x /avh-fvp_install.sh && /avh-fvp_install.sh
 #RUN chmod +x /armgcc_install.sh && /armgcc_install.sh
 ADD cmsistoolbox_install.sh /cmsistoolbox_install.sh
 RUN chmod +x /cmsistoolbox_install.sh && /cmsistoolbox_install.sh
-USER arm_mlops_docker
 
 FROM base

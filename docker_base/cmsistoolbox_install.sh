@@ -1,5 +1,5 @@
 wget https://github.com/Open-CMSIS-Pack/cmsis-toolbox/releases/download/2.1.0/cmsis-toolbox-linux-amd64.tar.gz -nv
-apt remove -y cmake
+apt install snapd
 snap install cmake
 snap install ninja-build
 tar -xf cmsis-toolbox-linux-amd64.tar.gz -C /home/arm_mlops_docker

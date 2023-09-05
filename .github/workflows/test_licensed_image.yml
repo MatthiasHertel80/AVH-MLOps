@@ -10,7 +10,7 @@ jobs:
   run_test:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/avh-mlops/arm-mlops-docker-licensed:latest
+      image: ghcr.io/matthiashertel80/avh-mlops/arm-mlops-docker-licensed:latest
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}

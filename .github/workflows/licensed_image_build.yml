@@ -31,8 +31,8 @@ jobs:
           cp ./arm_mlops_docker_license ./docker_licensed/arm_mlops_docker_license
           cat ./docker_licensed/arm_mlops_docker_license
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      #- name: Setup tmate session
+      #  uses: mxschmitt/action-tmate@v3
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2

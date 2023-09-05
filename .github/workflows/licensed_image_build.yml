@@ -24,12 +24,12 @@ jobs:
       - name: Pull Base Docker image
         run: docker pull ghcr.io/${{ env.REPO_SLUG }}/arm-mlops-docker-base:latest
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      #- name: Setup tmate session
+      #  uses: mxschmitt/action-tmate@v3
         
       - name: Create license file (stub)
         run: |
-          docker run -d --name build_container --mount type=bind,source=${{ github.workspace }},target=/workspace ghcr.io/${{ env.REPO_SLUG }}/arm-mlops-docker-base:latest sleep infinity
+          docker run -d --name build_container -u root -v ${{ github.workspace }}:/workspace ghcr.io/${{ env.REPO_SLUG }}/arm-mlops-docker-base:latest sleep infinity
           docker exec build_container /home/arm_mlops_docker/ArmCompilerforEmbedded6.20/bin/armlm activate --code ${{ secrets.ARM_UBL_LICENSE_IDENTIFIER }} --as-user arm_mlops_docker --to-file /workspace/arm_mlops_docker_license
           cp ./arm_mlops_docker_license ./docker_licensed/arm_mlops_docker_license
           cat ./docker_licensed/arm_mlops_docker_license

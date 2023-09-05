@@ -14,10 +14,13 @@ jobs:
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-      options: --user root
+      volumes: 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+      - name: run ls
+        run:  su -l arm_mlops_docker -c "ls -la"
 
       - name: Build Model for Cortex-M3 with AC6 (size)
         run: su -l arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cbuild MLOps.csolution.yml --context ML_Model.size+CM3 --toolchain AC6"

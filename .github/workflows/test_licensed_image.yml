@@ -5,6 +5,7 @@ on:
     workflows: ["Build and Push Licensed Docker Image"]
     types:
       - completed
+  workflow_dispatch:
 
 jobs:
   run_test:

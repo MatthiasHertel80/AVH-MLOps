@@ -23,6 +23,13 @@ jobs:
       - name: Set permissions for working directory __w
         run: chmod 777 -R /__w
 
+      - name: Set environment
+        run: |
+             export AC6_TOOLCHAIN_6_20_1=/home/arm_mlops_docker/ArmCompilerforEmbedded6.20.1/bin
+             export CMSIS_PACK_ROOT=/home/arm_mlops_docker/packs
+             export CMSIS_COMPILER_ROOT=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/etc
+             export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:/home/arm_mlops_docker/cmake/bin:$PATH
+
       - name: Install custom CMSIS packs
         run: | 
              wget -P /home/arm_mlops_docker https://github.com/ARM-software/CMSIS-DFP/releases/download/dev%2Fv1.0.0-dev12/ARM.CMSIS_DFP.1.0.0-dev12+g285da21.pack -nv

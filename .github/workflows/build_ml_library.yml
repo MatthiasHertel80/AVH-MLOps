@@ -20,6 +20,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Set permissions for working directory __w
+        run: chmod 777 __w
+
       - name: Install custom CMSIS packs
         run: | 
              wget -P /home/arm_mlops_docker https://github.com/ARM-software/CMSIS-DFP/releases/download/dev%2Fv1.0.0-dev12/ARM.CMSIS_DFP.1.0.0-dev12+g285da21.pack -nv

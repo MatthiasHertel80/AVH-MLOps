@@ -28,8 +28,8 @@ jobs:
              wget -P /home/arm_mlops_docker https://github.com/ARM-software/CMSIS-DFP/releases/download/dev%2Fv1.0.0-dev12/ARM.CMSIS_DFP.1.0.0-dev12+g285da21.pack -nv
              su -l arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cpackget add ARM.CMSIS_DFP.1.0.0-dev12+g285da21.pack --agree-embedded-license"
 
-      - name: Remote connect with tmate
-        uses: mxschmitt/action-tmate@v3
+      #- name: Remote connect with tmate
+      #  uses: mxschmitt/action-tmate@v3
 
       - name: Build Model for Cortex-M55 with AC6 (size)
         run: |

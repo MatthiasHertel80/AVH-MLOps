@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set permissions for working directory __w
-        run: chmod 777 __w
+        run: chmod 777 /__w
 
       - name: Install custom CMSIS packs
         run: | 

@@ -29,7 +29,10 @@ jobs:
              export AC6_TOOLCHAIN_6_20_1=/home/arm_mlops_docker/ArmCompilerforEmbedded6.20.1/bin
              export CMSIS_PACK_ROOT=/home/arm_mlops_docker/packs
              export CMSIS_COMPILER_ROOT=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/etc
-             export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:/home/arm_mlops_docker/cmake/bin:$PATH
+             export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:$PATH
+             export PATH=/home/arm_mlops_docker/cmake/bin:$PATH
+             ls /home/arm_mlops_docker/cmake/bin
+             echo $PATH
 
       - name: Install custom CMSIS packs
         run: | 

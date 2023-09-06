@@ -33,4 +33,8 @@ jobs:
 
       - name: Build Model for Cortex-M3 with AC6 (size)
         run: |
-             su - arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cbuild /__w/AVH-MLOps/AVH-MLOps/Project/TFLmicrospeech/MLOps.csolution.yml --packs --context ML_Model.size+CM3 --toolchain AC6"
+             su - arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cbuild /__w/AVH-MLOps/AVH-MLOps/Project/TFLmicrospeech/MLOps.csolution.yml --packs --context ML_Model.size+CM55 --toolchain AC6"
+
+      - name: Build Model for Cortex-M3 with AC6 (size)
+        run: |
+             su - arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cbuild /__w/AVH-MLOps/AVH-MLOps/Project/TFLmicrospeech/MLOps.csolution.yml --packs --context ML_Test.size+CM55 --update-rte--toolchain AC6"

@@ -1,4 +1,4 @@
-name: Build ML Library project and run in Arm Virtual Hardware FVP
+name: ML project build and run on Arm Virtual Hardware FVP
 
 on:
   workflow_run:
@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set permissions for working directory __w
-        run: chmod 777 /__w
+        run: chmod 777 -R /__w
 
       - name: Install custom CMSIS packs
         run: | 

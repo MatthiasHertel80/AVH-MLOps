@@ -20,8 +20,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: run ls
-        run:  su -l arm_mlops_docker -c "ls /__w/AVH-MLOps/AVH-MLOps -la"
+      - name: Install custom CMSIS packs
+        run: | 
+             wget -P /home/arm_mlops_docker https://github.com/ARM-software/CMSIS-DFP/releases/download/dev%2Fv1.0.0-dev12/ARM.CMSIS_DFP.1.0.0-dev12+g285da21.pack
+             su -l arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cpackget add ARM.CMSIS_DFP.1.0.0-dev12+g285da21.pack"
 
       - name: Build Model for Cortex-M3 with AC6 (size)
         run: su -l arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cbuild /__w/AVH-MLOps/AVH-MLOps/Project/TFLmicrospeech/MLOps.csolution.yml --packs --context ML_Model.size+CM3 --toolchain AC6"

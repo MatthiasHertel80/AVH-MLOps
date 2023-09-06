@@ -25,6 +25,7 @@ jobs:
 
       - name: Set environment
         run: |
+             su -l arm_mlops_docker
              export AC6_TOOLCHAIN_6_20_1=/home/arm_mlops_docker/ArmCompilerforEmbedded6.20.1/bin
              export CMSIS_PACK_ROOT=/home/arm_mlops_docker/packs
              export CMSIS_COMPILER_ROOT=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/etc

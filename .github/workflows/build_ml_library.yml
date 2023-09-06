@@ -1,4 +1,4 @@
-name: ML project build and run on Arm Virtual Hardware FVP
+name: ML Project - Build and Run on Arm Virtual Hardware FVP
 
 on:
   workflow_run:

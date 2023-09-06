@@ -9,5 +9,5 @@ echo 'export AC6_TOOLCHAIN_6_20_1=/home/arm_mlops_docker/ArmCompilerforEmbedded6
 echo 'export CMSIS_PACK_ROOT=/home/arm_mlops_docker/packs' >> /home/arm_mlops_docker/.bashrc
 echo 'export CMSIS_COMPILER_ROOT=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/etc' >> /home/arm_mlops_docker/.bashrc
 echo 'export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:$PATH' >> /home/arm_mlops_docker/.bashrc
-echo 'export PATH=/home/arm_mlops_docker/cmake/bin:$PATH' >> /home/arm_mlops_docker/.bashrc
-cpackget init https://www.keil.com/pack/index.pidx
+echo 'export PATH=/home/arm_mlops_docker/cmake/bin/:$PATH' >> /home/arm_mlops_docker/.bashrc
+su -l arm_mlops_docker -c "cpackget init https://www.keil.com/pack/index.pidx"

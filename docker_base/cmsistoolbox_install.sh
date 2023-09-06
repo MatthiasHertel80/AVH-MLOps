@@ -8,16 +8,16 @@ mkdir /home/arm_mlops_docker/ninja
 wget -qO /home/arm_mlops_docker/ninja/ninja.gz https://github.com/ninja-build/ninja/releases/latest/download/ninja-linux.zip -nv
 gunzip /home/arm_mlops_docker/ninja/ninja.gz 
 chmod a+x /home/arm_mlops_docker/ninja/ninja 
-echo 'export AC6_TOOLCHAIN_6_20_1=/home/arm_mlops_docker/ArmCompilerforEmbedded6.20.1/bin' >> /home/arm_mlops_docker/.bashrc
+echo 'export AC6_TOOLCHAIN_6_20_1=/home/arm_mlops_docker/ArmCompilerforEmbedded6.20/bin' >> /home/arm_mlops_docker/.bashrc
 echo 'export CMSIS_PACK_ROOT=/home/arm_mlops_docker/packs' >> /home/arm_mlops_docker/.bashrc
 echo 'export CMSIS_COMPILER_ROOT=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/etc' >> /home/arm_mlops_docker/.bashrc
 echo 'export PATH=/home/arm_mlops_docker/cmake/bin:$PATH' >> /home/arm_mlops_docker/.bashrc
 echo 'export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:$PATH' >> /home/arm_mlops_docker/.bashrc
-echo 'export AC6_TOOLCHAIN_6_20_1=/home/arm_mlops_docker/ArmCompilerforEmbedded6.20.1/bin' >> /etc/environment
+echo 'export AC6_TOOLCHAIN_6_20_1=/home/arm_mlops_docker/ArmCompilerforEmbedded6.20/bin' >> /etc/environment
 echo 'export CMSIS_PACK_ROOT=/home/arm_mlops_docker/packs' >> /etc/environment
 echo 'export CMSIS_COMPILER_ROOT=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/etc' >> /etc/environment
-echo 'export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:/home/arm_mlops_docker/cmake/bin:/home/arm_mlops_docker/ninja:/home/arm_mlops_docker/ArmCompilerforEmbedded6.20.1/bin:$PATH' >> /etc/environment
-export AC6_TOOLCHAIN_6_20_1=/home/arm_mlops_docker/ArmCompilerforEmbedded6.20.1/bin
+echo 'export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:/home/arm_mlops_docker/cmake/bin:/home/arm_mlops_docker/ninja:/home/arm_mlops_docker/ArmCompilerforEmbedded6.20/bin:$PATH' >> /etc/environment
+export AC6_TOOLCHAIN_6_20_1=/home/arm_mlops_docker/ArmCompilerforEmbedded6.20/bin
 export CMSIS_PACK_ROOT=/home/arm_mlops_docker/packs
 export CMSIS_COMPILER_ROOT=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/etc
 export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:$PATH

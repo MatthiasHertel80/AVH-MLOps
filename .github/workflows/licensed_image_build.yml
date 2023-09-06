@@ -2,7 +2,7 @@ name: Licensed Docker Image - Build and Push
 
 on:
   workflow_run:
-    workflows: ["Licensed Docker Image - Build and Push"]
+    workflows: ["Base Docker Image - Build and Push"]
     types:
       - completed
   workflow_dispatch:

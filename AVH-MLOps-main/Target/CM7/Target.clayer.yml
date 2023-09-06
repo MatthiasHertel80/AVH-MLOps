@@ -12,4 +12,4 @@ layer:
   groups:
     - group: FVP
       files:
-        - file: ./FVP_config.txt
+        - file: ./fvp_config.txt

@@ -11,4 +11,4 @@ echo 'export CMSIS_COMPILER_ROOT=/home/arm_mlops_docker/cmsis-toolbox-linux-amd6
 echo 'export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:$PATH' >> /home/arm_mlops_docker/.bashrc
 echo 'export PATH=/home/arm_mlops_docker/cmake/bin/:$PATH' >> /home/arm_mlops_docker/.bashrc
 su -l arm_mlops_docker -c "source /home/arm_mlops_docker/.bashrc"
-su -l arm_mlops_docker -c "/home/arm_mlops_docker/cmake/bin/cpackget init https://www.keil.com/pack/index.pidx"
+su -l arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cpackget init https://www.keil.com/pack/index.pidx"

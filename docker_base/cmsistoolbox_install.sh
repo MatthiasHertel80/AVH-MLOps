@@ -10,14 +10,15 @@ echo 'export CMSIS_PACK_ROOT=/home/arm_mlops_docker/packs' >> /home/arm_mlops_do
 echo 'export CMSIS_COMPILER_ROOT=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/etc' >> /home/arm_mlops_docker/.bashrc
 echo 'export PATH=/home/arm_mlops_docker/cmake/bin:$PATH' >> /home/arm_mlops_docker/.bashrc
 echo 'export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:$PATH' >> /home/arm_mlops_docker/.bashrc
-echo 'export AC6_TOOLCHAIN_6_20_1=/home/arm_mlops_docker/ArmCompilerforEmbedded6.20.1/bin' >> /root/.bashrc
-echo 'export CMSIS_PACK_ROOT=/home/arm_mlops_docker/packs' >> /root/.bashrc
-echo 'export CMSIS_COMPILER_ROOT=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/etc' >> /root/.bashrc
-echo 'export PATH=/home/arm_mlops_docker/cmake/bin:$PATH' >> /root/.bashrc
-echo 'export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:$PATH' >> /root/.bashrc
+echo 'export AC6_TOOLCHAIN_6_20_1=/home/arm_mlops_docker/ArmCompilerforEmbedded6.20.1/bin' >> /etc/environment
+echo 'export CMSIS_PACK_ROOT=/home/arm_mlops_docker/packs' >> /etc/environment
+echo 'export CMSIS_COMPILER_ROOT=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/etc' >> /etc/environment
+echo 'export PATH=/home/arm_mlops_docker/cmake/bin:$PATH' >> /etc/environment
+echo 'export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:$PATH' >> /etc/environment
 export AC6_TOOLCHAIN_6_20_1=/home/arm_mlops_docker/ArmCompilerforEmbedded6.20.1/bin
 export CMSIS_PACK_ROOT=/home/arm_mlops_docker/packs
 export CMSIS_COMPILER_ROOT=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/etc
 export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:$PATH
 export PATH=/home/arm_mlops_docker/cmake/bin:$PATH
 cpackget init https://www.keil.com/pack/index.pidx
+chwon -R arm_mlops_docker /home/arm_mlops_docker

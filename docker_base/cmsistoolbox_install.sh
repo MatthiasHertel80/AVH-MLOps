@@ -15,4 +15,4 @@ export CMSIS_PACK_ROOT=/home/arm_mlops_docker/packs
 export CMSIS_COMPILER_ROOT=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/etc
 export PATH=/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin:$paths
 export PATH=/home/arm_mlops_docker/cmake/bin/:$PATH
-cpackget init https://www.keil.com/pack/index.pidx"
+cpackget init https://www.keil.com/pack/index.pidx

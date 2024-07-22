@@ -1,6 +1,23 @@
-FROM ghcr.io/matthiashertel80/avh-mlops/arm-mlops-docker-base:latest as base
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE} as base
 
-ADD arm_mlops_docker_license /arm_mlops_docker_license
-RUN su -l arm_mlops_docker -c "/home/arm_mlops_docker/ArmCompilerforEmbedded6.20/bin/armlm import --file /arm_mlops_docker_license"
+USER arm_mlops_docker
+SHELL ["/bin/bash", "-c"]
+
+ADD arm_mlops_docker_license* /
+
+WORKDIR /vcpkg
+
+RUN . /load_env.sh && \ 
+    if [ -f /arm_mlops_docker_license ]; then \
+      armlm import --file /arm_mlops_docker_license; \
+    else \
+      armlm activate -product KEMDK-COM0 -server https://mdk-preview.keil.arm.com; \
+    fi
+
+# Add /load_env.sh /vcpkg/env.json to .bashrc
+RUN echo ". /load_env.sh /vcpkg/" >> ~/.bashrc 
+
+WORKDIR /workspace
 
 FROM base

@@ -34,6 +34,6 @@ jobs:
 
       - name: cbuild testproject
         # Test if the armclang command is working in the Docker container
-        run: . /load_env.sh && cbuild get_started.csolution.yml --packs --update-rte --context .debug+avh
+        run: /load_env.sh && cbuild get_started.csolution.yml --packs --update-rte --context .debug+avh
 
   

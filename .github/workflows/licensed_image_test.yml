@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       # Use the custom Docker image with the necessary tools and dependencies
-      image: ghcr.io/arm-software/avh-mlops/arm-mlops-docker-licensed:latest
+      image: ghcr.io/matthiashertel80/avh-mlops/arm-mlops-docker-licensed:latest
       credentials:
         # Set the Docker image credentials using the actor and a GitHub token
         username: ${{ github.actor }}
@@ -26,19 +26,14 @@ jobs:
       - name: Checkout repository
         # Check out the repository containing the ML project
         uses: actions/checkout@v2
+        
 
-      - name: Try to execute cbuild
+      - name: Use vcpkg to install tools 
         # Test if the cbuild command is working in the Docker container
-        run: su -l arm_mlops_docker -c "/home/arm_mlops_docker/cmsis-toolbox-linux-amd64/bin/cbuild --version"
+        run: vcpkg activate  --downloads-root=. --json=env.json
 
-      - name: Run test command in Docker container for armclang and license
+      - name: cbuild testproject
         # Test if the armclang command is working in the Docker container
-        run: su -l arm_mlops_docker -c "/home/arm_mlops_docker/ArmCompilerforEmbedded6.20/bin/armclang --version"
+        run: . /load_env.sh && cbuild get_started.csolution.yml --packs --update-rte --context .debug+avh
 
-      - name: Run test command in Docker container for arm-llvm
-        # Test if the clang command is working in the Docker container
-        run: su -l arm_mlops_docker -c "/home/arm_mlops_docker/LLVMEmbeddedToolchainForArm-16.0.0-Linux-x86_64/bin/clang --target=armv7m-none-eabi --version"
-
-      - name: Run test command in Docker container for GNU Compiler
-        # Test if the arm-none-eabi-gcc command is working in the Docker container
-        run: su -l arm_mlops_docker -c "/home/arm_mlops_docker/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gcc --version"
+  

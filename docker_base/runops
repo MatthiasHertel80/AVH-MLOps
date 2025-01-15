@@ -1,3 +1,4 @@
+#!/bin/bash
 #This script simplifies non-interactive docker run commands by loading 
 # environment variables from a file and running the container with the
 # specified options.

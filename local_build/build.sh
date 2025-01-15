@@ -18,7 +18,7 @@ if [[ $DOCKER_INFO == *"Cannot connect to the Docker daemon"* ]]; then
 fi
 
 # Build the base image
-docker build -t arm-mlops-docker-base:latest -f ../docker_base/Dockerfile ../docker_base --platform=linux/amd64 
+docker build -t arm-mlops-docker-base:latest -f ../docker_base/Dockerfile ../docker_base --platform=linux/amd64 --no-cache --progress=plain
 
 # Run an instance of the image in a container
 docker run -d --name build_container -v ./:/workspace --platform=linux/amd64 arm-mlops-docker-base:latest sleep infinity

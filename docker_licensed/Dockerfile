@@ -10,9 +10,9 @@ WORKDIR /vcpkg
 
 RUN . /load_env.sh && \ 
     if [ -f /arm_mlops_docker_license ]; then \
-      armlm import --file /arm_mlops_docker_license; \
+      /opt/armlm/bin/armlm import --file /arm_mlops_docker_license; \
     else \
-      armlm activate -product KEMDK-COM0 -server https://mdk-preview.keil.arm.com; \
+      /opt/armlm/bin/armlm activate -product KEMDK-COM0 -server https://mdk-preview.keil.arm.com; \
     fi
 
 # Add /load_env.sh /vcpkg/env.json to .bashrc
